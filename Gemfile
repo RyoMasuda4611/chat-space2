@@ -27,6 +27,10 @@ gem 'html2haml'
 
 gem 'erb2haml'
 
+gem "haml-rails", "~> 0.9"
+
+gem "font-awesome-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -39,6 +43,7 @@ gem 'erb2haml'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry-rails'
 end
 
 group :development do
