@@ -1,0 +1,19 @@
+.flash {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  li {
+    height: 3vw;
+    background-color: #d9744f;
+    color: #fff;
+    line-height: 3vw;
+    font-size: 23px;
+  }
+  .alert {
+    background-color: rgb(217, 116, 79);
+  }
+  .notice {
+    background-color: rgb(29, 96, 173);
+  }
+}

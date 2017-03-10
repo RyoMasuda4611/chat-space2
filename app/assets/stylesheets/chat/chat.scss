@@ -1,0 +1,75 @@
+.chat {
+  @include flexbox;
+  &-group {
+    .group {
+      height: 6vw;
+      padding: 2vw 2vw 1vw 2vw;
+      &__informations {
+        .name {
+          font-size: $font_size_large;
+          letter-spacing: $letter_sapce;
+          line-height: $font_size_large;
+        }
+        .members {
+          font-size: $font_size_small;
+          line-height: $font_size_small;
+          margin-top: 10px;
+        }
+      }
+      .edit {
+        border: solid 2px;
+        box-sizing: border-box;
+        color: $sky_blue;
+        display: block;
+        font-size: 1vw;
+        height: 2.6vw;
+        line-height: 1vw;
+        padding: 0.7vw;
+        text-align: center;
+        width: 5vw;
+      }
+    }
+  }
+  .messages {
+    background-color: $message_background_color;
+    height: calc(100vh - 6vw - 6vw);
+    height: -webkit-calc(100vh - 6vw - 6vw) ;
+    padding: 2vw;
+    width: 78vw;
+  }
+  &__form {
+    background-color: $form_background_color;
+    height: 6vw;
+    padding: 1.5vw 2vw;
+    .text-field {
+      border: none;
+      float: left;
+      height: 3vw;
+      padding: 1vw;
+      width: 69vw;
+    }
+    .file {
+      background: $white;
+      cursor: pointer;
+      display: inline-block;
+      float: left;
+      height: 3vw;
+      line-height: 3vw;
+      width: 2vw;
+      input {
+        display: none;
+      }
+    }
+    .submit {
+      display: inline-block;
+      float: left;
+      width: 6vw;
+      margin-left: 1vw;
+      line-height: 3vw;
+      color: $white;
+      background-color: $sky_blue;
+      text-align: center;
+      border: none;
+    }
+  }
+}
