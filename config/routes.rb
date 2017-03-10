@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root "massages#index"
+  root "messages#index"
 end
