@@ -1,0 +1,46 @@
+.side-bar {
+  a {
+    color: $white;
+  }
+  background-color: #2f3e51;
+  height: 100vh;
+  width: 18vw;
+  &__user {
+    background-color: #253141;
+    height: 6vw;
+    line-height: 2vw;
+    padding: 2vw 1vw;
+    &__name {
+      color: $white;
+      font-size: $font_size_large;
+      letter-spacing: $letter_sapce;
+    }
+    .user-actions {
+      &__action {
+        font-size: 1.4vw;
+      }
+    }
+  }
+  &__groups {
+    .group {
+      &__link {
+        box-sizing: border-box;
+        display: block;
+        height: 5vw;
+        padding: 1vw;
+        text-decoration: none;
+        &:hover {
+          background-color: #384a62;
+        }
+      }
+      &__name {
+        font-size: 1vw;
+        line-height: 1vw;
+      }
+      &__first-message {
+        font-size: $font_size_small;
+        line-height: 2vw;
+      }
+    }
+  }
+}

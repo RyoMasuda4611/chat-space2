@@ -1,0 +1,17 @@
+.message  {
+  padding-bottom: 2vw;
+  &__information {
+    .name {
+      font-size: $font_size_midium;
+      line-height: $font_size_midium;
+    }
+    .date {
+      font-size: $font_size_small;
+      line-height: $font_size_small;
+    }
+  }
+  &__body {
+    margin-top: 5px;
+    font-size: 0.9vw;
+  }
+}
