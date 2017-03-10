@@ -1,0 +1,11 @@
+.side-bar
+  .side-bar__user
+    .side-bar__user__name.left.bold
+      current_user.name
+    .user-actions.right
+      = link_to root_path, class: "user-actions__action edit" do
+        %i.fa.fa-pencil-square-o
+      = link_to root_path, class: "user-actions__action setting" do
+        %i.fa.fa-cog
+  %ul.side-bar__groups
+    = render partial: 'groups/group'

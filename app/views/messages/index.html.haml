@@ -1,0 +1,17 @@
+.chat
+  = render partial: 'groups/side_bar'
+  .chat-group
+    .group
+      .group__informations.left
+        .name
+        @group.name
+        .members.gray
+          Members:
+          @group.users
+          %span.member-name
+            user.name
+      .right
+        = link_to 'Edit', root_path, class: 'edit'
+    %ul.messages.position-relative
+      = render partial: 'layouts/flash'
+      = render partial: 'messages/message'
