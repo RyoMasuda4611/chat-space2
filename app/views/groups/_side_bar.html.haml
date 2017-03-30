@@ -3,7 +3,7 @@
     .side-bar__user__name.left.bold
       = current_user.nickname
     .user-actions.right
-      = link_to root_path, class: "user-actions__action edit" do
+      = link_to edit_user_registration_path, class: "user-actions__action edit" do
         %i.fa.fa-pencil-square-o
       = link_to root_path, class: "user-actions__action setting" do
         %i.fa.fa-cog
