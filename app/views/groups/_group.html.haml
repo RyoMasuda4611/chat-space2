@@ -1,6 +1,7 @@
-%li.group
-  = link_to root_path, class: 'group__link' do
-    .group__name
-      group.name
-    .group__first-message
-      group.show_message
+- @groups.each do |group|
+  %li.group
+    = link_to root_path( group_id: group.id ), class: 'group__link' do
+      .group__name
+        = group.name
+      .group__first-message
+        group.show_message
