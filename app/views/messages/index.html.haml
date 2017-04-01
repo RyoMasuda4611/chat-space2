@@ -4,14 +4,14 @@
     .group
       .group__informations.left
         .name
-        @group.name
+        = @group.name
         .members.gray
           Members:
-          @group.users
-          %span.member-name
-            user.name
+          - @group.users.each do |user|
+            %span.member-name
+              = user.nickname
       .right
-        = link_to 'Edit', root_path, class: 'edit'
+        = link_to 'Edit', edit_group_path(@group), class: 'edit'
     %ul.messages.position-relative
       = render partial: 'layouts/flash'
       = render partial: 'messages/message'
