@@ -14,4 +14,8 @@
         = link_to 'Edit', edit_group_path(@group), class: 'edit'
     %ul.messages.position-relative
       = render partial: 'layouts/flash'
-      = render partial: 'messages/message'
+      = render @messages
+    = form_for [@group, @message], html: { class: 'chat__form' }, url: { action: :create } do |f|
+      = f.text_field :body, class: 'text-field', placeholder: 'Type a message'
+      = f.hidden_field :group_id, value: @group.id
+      = f.submit '送信', class: 'submit'
