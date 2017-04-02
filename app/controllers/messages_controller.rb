@@ -6,5 +6,6 @@ class MessagesController < ApplicationController
       @group = current_user.groups.first
     end
     @groups = current_user.groups
+    @message = Message.new
   end
 end
