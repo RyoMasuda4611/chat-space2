@@ -27,14 +27,21 @@ describe User do
       expect(user).to_not be_valid
     end
     it "should be invalid with duplicated email" do
-      create(:user)
-      duplicated_user = build(:user)
+      user = create(:user)
+      duplicated_user = build(:user, email: user.email)
       expect(duplicated_user).to_not be_valid
     end
 
     it "should be invalid with password that has less than 7 characters" do
       user = build(:user, password: "1111")
       expect(user).to_not be_valid
+    end
+  end
+  describe 'assciation' do
+    it 'has many group' do
+      groups = create_list(:group, 3)
+      user = create(:user, groups: groups)
+      expect(user.groups).to eq groups
     end
   end
 end
