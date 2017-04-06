@@ -15,7 +15,7 @@
     %ul.messages.position-relative
       = render partial: 'layouts/flash'
       = render @messages
-    = form_for [@group, @message], html: { class: 'chat__form' }, url: { action: :create } do |f|
+    = form_for [@group, @message], html: { class: 'chat__form' }, remote: true  do |f|
       = f.text_field :body, class: 'text-field', placeholder: 'Type a message'
       = f.hidden_field :group_id, value: @group.id
       = f.submit '送信', class: 'submit'
