@@ -13,7 +13,8 @@ class MessagesController < ApplicationController
 
   def create
     if Message.create(group_params)
-      redirect_to root_path
+      group = Group.find(params[:group_id])
+      @messages = group.messages
     else
       redirect_to root_path, notice: 'メッセージの送信に失敗しました'
     end
