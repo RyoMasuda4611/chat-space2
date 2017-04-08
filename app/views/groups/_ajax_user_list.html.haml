@@ -1,0 +1,5 @@
+- if @users.present?
+  - @users.each do |user|
+    %li{id: "user_#{user.id}"}
+      = user.nickname
+      = button_tag '追加', type: 'button', class: "ajax_user_list", 'data-user-id': user.id, 'data-user-name': user.nickname

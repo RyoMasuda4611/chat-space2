@@ -2,6 +2,7 @@
   %li.group
     = link_to root_path( group_id: group.id ), class: 'group__link' do
       .group__name
-        = group.name
+        %B
+          #{ group.name }
       .group__first-message
-        group.show_message
+        = group.messages.last.body if group.messages.any?
