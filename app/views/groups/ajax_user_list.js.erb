@@ -1,0 +1,1 @@
+$("#user-search-result").html("<%= escape_javascript(render partial: 'ajax_user_list', locals: { users: @users, group: @group } ) %>");
