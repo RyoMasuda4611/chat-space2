@@ -1,5 +1,5 @@
 = form_for @group do |f|
-  %form#new_chat_group.new_chat_group{"accept-charset" => "UTF-8", :action => "/chat_groups", :method => "post"}
+  %form#new_chat_group.new_chat_group{ "accept-charset" => "UTF-8", :action => "/chat_groups", :method => "post" }
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :name, 'グループ名', class: 'chat-group-form__label'
@@ -8,20 +8,31 @@
         = f.hidden_field :group_id, value: @group.id
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        %label.chat-group-form__label{:for => "chat_group_チャットメンバーを追加"} チャットメンバーを追加
+        %label.chat-group-form__label{ :for => "chat_group_チャットメンバーを追加" } チャットメンバーを追加
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
-          = collection_check_boxes(:group, :user_ids, User.all, :id, :nickname)
-          / %input#user-search-field.chat-group-form__input{:placeholder => "追加したいユーザー名を入力してください", :type => "text"}/
-        #user-search-result
+          %input#user-search-field.chat-group-form__input{ :placeholder => "追加したいユーザー名を入力してください", :type => "text" }/
+        %ul#user-search-result
+          = render partial: "ajax_user_list", locals: { group: @group, f: f }
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
       .chat-group-form__field--right
         #chat-group-users
-          #chat-group-user-22.chat-group-user.clearfix
-            %p.chat-group-user__name seo_kyohei
+          - unless @group.id.nil?
+            - @group.users.each do |user|
+              .chat-group-user.clearfix{ id: "chat-group-user-#{ user.id }" }
+                %input{ type: 'hidden', name: 'group[user_ids][]', value: user.id }
+                %p.chat-group-user__name
+                  = user.nickname
+                %button{ class: 'user_list_remove', type: "button", "data-user-id": user.id }
+                  削除
+          - else
+            #chat-group-user-current-user.chat-group-user.clearfix
+              %p.chat-group-user__name
+                = current_user.nickname
+              %input{ type: 'hidden', name: 'group[user_ids][]', value: current_user.id }
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
-        %input.chat-group-form__action-btn{"data-disable-with" => "Save", :name => "commit", :type => "submit", :value => "Save"}/
+        %input.chat-group-form__action-btn{ "data-disable-with" => "Save", :name => "commit", :type => "submit", :value => "Save" }/
